@@ -11,9 +11,9 @@ export const signup = async (req: Request, res: Response) => {
       password: hashedPassword,
     });
 
-    const savedUser = await user.save();
+    const { email: savedEmail, _id } = await user.save();
 
-    res.status(201).json(savedUser);
+    res.status(201).json({ savedEmail, _id });
   } catch (error) {
     res.status(500).json({ message: error });
   }
