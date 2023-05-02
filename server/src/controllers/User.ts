@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import User, { IUser } from "../models/User";
 
 export const signup = async (req: Request, res: Response) => {
@@ -32,9 +31,8 @@ export const login = async (req: Request, res: Response) => {
   if (!isMatch) {
     return res.status(400).json({ message: "Invalid email or password" });
   }
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
-  });
 
-  res.json({ token });
+  // TODO: Generate JWT and send it to the client
+
+  res.json({ message: "Logged in successfully" });
 };

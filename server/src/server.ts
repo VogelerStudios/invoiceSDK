@@ -11,7 +11,7 @@ import userRoutes from "./routes/User";
 dotenv.config();
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = 5000 || process.env.PORT;
 
 // Middlewares
 app.use(cors());
