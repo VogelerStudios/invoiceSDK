@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 // import routes
 import invoiceRoutes from "./routes/invoice";
+import paymentRoutes from "./routes/Payment";
 
 dotenv.config();
 
@@ -31,7 +32,7 @@ mongoose
 
 // Routes
 app.use("/api/invoices", invoiceRoutes);
-
+app.use("/api/payments", paymentRoutes);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
