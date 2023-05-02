@@ -3,6 +3,9 @@ import cors from "cors";
 import mongoose, { ConnectOptions } from "mongoose";
 import dotenv from "dotenv";
 
+// import routes
+import invoiceRoutes from "./routes/invoice";
+
 dotenv.config();
 
 const app = express();
@@ -27,6 +30,8 @@ mongoose
   });
 
 // Routes
+app.use("/api/invoices", invoiceRoutes);
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
