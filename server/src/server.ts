@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 // import routes
 import invoiceRoutes from "./routes/invoice";
 import paymentRoutes from "./routes/Payment";
+import userRoutes from "./routes/User";
 
 dotenv.config();
 
@@ -33,6 +34,8 @@ mongoose
 // Routes
 app.use("/api/invoices", invoiceRoutes);
 app.use("/api/payments", paymentRoutes);
+app.use("/api/users", userRoutes); // TODO: Add authentication middleware
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
